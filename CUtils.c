@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+// Swaps two blocks of memory
+void swap(void *a, void *b, size_t sz) {
+    void *temp = malloc(sz);
+    memcpy(temp, b, sz);
+    memcpy(b, a, sz);
+    memcpy(a, temp, sz);
+    free(temp);
+    return;
+}
+
+// Reverses a string
+char* reverseString(char *str, size_t size) {
+    if (str == NULL) return NULL;
+    
+    char temp;
+    for (int i = 0; i < (size / 2); i++) {
+        temp = str[i];
+        str[i] = str[size-i-1];
+        str[size-i-1] = temp;
+    }
+    return str;
+}
+
+// Finds min of int array
+int findMin(int arr[], int size) {
+    int min = arr[0];
+    for (int i=0; i < size; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return min;
+    
+}
+
+// Finds max of int array
+int findMax(int arr[], int size) {
+    int max = arr[0];
+    for (int i=0; i < size; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+// Multiplies two matrices, (mxn) * (nxp) = (mxp)
+void matrixMultiply (int *mat1, int *mat2, int *result, int m, int n, int p) {
+    for (int k = 0; k < n; k++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < p; j++) {
+                *(result + i*p + j) += *(mat1 + i*n + k) * *(mat2 + k*p + j);
+            }
+        }
+    }
+    return;
+}
+
+// Detects if number is prime
+bool isPrime(int num) {
+    for (int i = 2; i < num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
