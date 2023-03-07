@@ -11,8 +11,10 @@ char* reverseString(char *str, size_t size);
 int findMin(int arr[], int size);
 int findMax(int arr[], int size);
 
-void matrixMultiply (int *mat1, int *mat2, int *result, int m, int n, int p);
+void matrixMultiply(int *mat1, int *mat2, int *result, int m, int n, int p);
 
 bool isPrime(int num);
 
+double magVec(double vec[], int n);
+double* normVec(double *vec, int n);
 #endif

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 
 // Swaps two blocks of memory
 void swap(void *a, void *b, size_t sz) {
@@ -69,3 +70,22 @@ bool isPrime(int num) {
     }
     return true;
 }
+
+// Returns the magnitude of a vector
+double magVec(double *vec, int n) {
+    double mag;
+    for (int i = 0; i < n; i++) {
+        mag += pow((vec[i]), 2);
+    }
+    return sqrt(mag);
+}
+
+// Normalizes a vec
+double* normVec(double *vec, int n) {
+    double mag = magVec(vec, n);
+    for (int i = 0; i < n; i++) {
+        vec[i] /= mag;
+    }
+    return vec;
+}
+
