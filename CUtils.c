@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <math.h>
 
+#define countof(array) (sizeof(array) / sizeof(array[0]))
+
 // Swaps two blocks of memory
 void swap(void *a, void *b, size_t sz) {
     void *temp = malloc(sz);
