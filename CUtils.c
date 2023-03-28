@@ -91,3 +91,19 @@ double* normVec(double *vec, int n) {
     return vec;
 }
 
+// Implementation of Quake fast inverse square root
+float Q_rsqrt(float num) {
+    long i;
+    float x2, y;
+    const float threehalfs = 1.5F;
+
+    x2 = num * 0.5F;
+    y = num;
+    i = * (long *) &y;          // Evil floating point bit hack
+    i = 0x5f3759df - (i >> 1);  
+    y = * (float *) &i;         // Converts i back to float
+    y = y * (threehalfs - (x2*y*y));    // First Newton iteration
+    y = y * (threehalfs - (x2*y*y));    // Second Newton iteration (optional)
+
+    return y;
+}

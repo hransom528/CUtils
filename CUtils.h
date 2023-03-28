@@ -17,4 +17,5 @@ bool isPrime(int num);
 
 double magVec(double vec[], int n);
 double* normVec(double *vec, int n);
+float Q_rsqrt(float num);
 #endif
