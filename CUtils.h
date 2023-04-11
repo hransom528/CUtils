@@ -1,6 +1,13 @@
 #ifndef CUTILS_H
 #define CUTILS_H
 
+/* MACROS */
+#define max(A, B) (((A) > (B)) ? (A) : (B))     // Max macro
+#define forever for(;;)                         // Infinite loop
+#define dprint(expr) printf(#expr " = %g\n", expr)  // Debug print
+#define paste(front, back) front ## back
+
+
 /* MEM */
 void swap(void *a, void *b, size_t sz);
 
